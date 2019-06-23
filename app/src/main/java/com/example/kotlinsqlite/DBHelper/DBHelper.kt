@@ -1,5 +1,6 @@
 package com.example.kotlinsqlite.DBHelper
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
@@ -49,7 +50,37 @@ class DBHelper(context:Context):SQLiteOpenHelper(context , DATABASE_NAME , null 
                 lstPerson.add(person)
             }while (cursor.moveToNext())
         }
+        db.close()
  return lstPerson
 
     }
+
+    fun addPerson(person: Person){
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(COL_ID , person.id)
+        values.put(COL_NAME , person.name)
+        values.put(COL_EMAIL , person.email)
+
+        db.insert(TABLE_NAME , null , values)
+   db.close()
+    }
+
+    fun UpdatePerson(person: Person):Int{
+        val db = this.writableDatabase
+        val values = ContentValues()
+        values.put(COL_ID , person.id)
+        values.put(COL_NAME , person.name)
+        values.put(COL_EMAIL , person.email)
+
+        return db.update(TABLE_NAME , values , "$COL_ID =?" , arrayOf(person.id.toString()))
+        //db.close()
+    }
+    fun deletePerson(person: Person){
+        val db = this.writableDatabase
+
+         db.delete(TABLE_NAME ,  "$COL_ID =?" , arrayOf(person.id.toString()))
+        db.close()
+    }
+
 }
