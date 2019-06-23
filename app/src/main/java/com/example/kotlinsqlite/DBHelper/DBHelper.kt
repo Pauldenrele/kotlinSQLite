@@ -47,7 +47,7 @@ class DBHelper(context:Context):SQLiteOpenHelper(context , DATABASE_NAME , null 
                 person.email = cursor.getString(cursor.getColumnIndex(COL_EMAIL))
 
                 lstPerson.add(person)
-            }
+            }while (cursor.moveToNext())
         }
 
 
