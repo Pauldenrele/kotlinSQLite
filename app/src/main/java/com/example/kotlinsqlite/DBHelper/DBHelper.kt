@@ -6,12 +6,13 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class DBHelper(context:Context):SQLiteOpenHelper(context , DATABASE_NAME , null , DATABASE_VER) {
     override fun onCreate(db: SQLiteDatabase?) {
-        val CREATE_TABLE_QUERY:String = ("CREATE TABLE" + TABLE_NAME + "("+ COL_ID +
-                "INTEGER PRIMARY KEY" + COL_NAME + "TEXT, " + COL_EMAIL + "TEXT,")
+        val CREATE_TABLE_QUERY:String = ("CREATE TABLE $TABLE_NAME + ( $COL_ID INTEGER PRIMARY KEY, $COL_NAME TEXT, $COL_EMAIL TEXT)")
         db!!.execSQL(CREATE_TABLE_QUERY)
     }
 
     override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
+
+        db!!.execSQL("DROP TABLE IF EXISTS $TABLE_NAME")
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
