@@ -55,6 +55,14 @@ class DBHelper(context:Context):SQLiteOpenHelper(context , DATABASE_NAME , null 
 
     }
 
+    /**
+     *
+     *Functions to
+     * Add
+     * Update
+     * Delete
+     */
+
     fun addPerson(person: Person){
         val db = this.writableDatabase
         val values = ContentValues()
@@ -65,6 +73,8 @@ class DBHelper(context:Context):SQLiteOpenHelper(context , DATABASE_NAME , null 
         db.insert(TABLE_NAME , null , values)
    db.close()
     }
+
+
 
     fun UpdatePerson(person: Person):Int{
         val db = this.writableDatabase

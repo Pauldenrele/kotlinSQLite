@@ -1,6 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                                             android:layout_width="match_parent"
-                                             android:layout_height="match_parent">
+<RelativeLayout
 
-</android.support.constraint.ConstraintLayout>
+         xmlns:android="http://schemas.android.com/apk/res/android"
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
+<LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+android:orientation="vertical"
+        android:weightSum="2"
+
+
+>
+
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+
+    android:text="0"
+    android:textSize="90sp"
+              android:id="@+id/txtId"
+    />
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+    android:orientation="horizontal"
+            android:weightSum="2"
+
+    >
+
+        <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+        android:id="@+id/txtName"
+        android:text="Pauli"
+        android:textSize="26sp"/>
+
+        <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/txtEmail"
+                android:text="Pauli@gmail"
+                android:textSize="26sp"
+        android:layout_marginLeft="200dp"
+        />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+</RelativeLayout>
